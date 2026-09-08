@@ -24,7 +24,7 @@ class LoginController extends Controller
                 parent::redirect('/infotech/cliente/listar');
             }
        }
-       parent::render('/Login/login.php', $model);
+       parent::render('Login/login.php', $model);
     }
 
     public function logout()
