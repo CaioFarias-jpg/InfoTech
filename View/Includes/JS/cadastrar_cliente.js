@@ -1,3 +1,12 @@
+const modal = document.getElementById("modal");
+
+console.log(modal);
+
+function chamaModal(){
+    modal.classList.remove('oculta');
+    modal.classList.add('chama');
+}
+
 let nome = document.getElementById('nome');
 
 nome.addEventListener('change', async function(event){
@@ -8,10 +17,12 @@ nome.addEventListener('change', async function(event){
         const result = await response.json();
 
         if(result.status == 200){
-            alert("Deu certo a comunicação com a API via PHP");
+                chamaModal();        
+        }else{
+            alert("Não chama nada");
         }
     }
     catch(error){
-        alert('ERROOOOOOO');
+        alert(resposta);
     }
 });
