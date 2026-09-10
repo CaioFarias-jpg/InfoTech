@@ -42,14 +42,7 @@ O roteamento é feito por um `Router` customizado, que direciona as requisiçõe
    ```
    Em seguida, importe o script SQL do projeto (caso disponível) com as tabelas necessárias.
 
-3. **Confira as configurações de conexão** em `config.php`:
-   ```php
-   $_ENV['db']['host'] = 'localhost';
-   $_ENV['db']['user'] = 'root';
-   $_ENV['db']['pass'] = '';
-   $_ENV['db']['database'] = 'infotech';
-   ```
-   Ajuste usuário/senha caso seu MySQL local seja diferente do padrão do XAMPP.
+3. **Configure a conexão com o banco** no arquivo `config.php`, informando host, usuário, senha e nome do banco de dados de acordo com o seu ambiente MySQL local (por padrão, o XAMPP usa usuário `root` e senha em branco).
 
 4. **Inicie o Apache e o MySQL** pelo painel de controle do XAMPP.
 
