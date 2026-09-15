@@ -2,22 +2,27 @@
 
 namespace InfoTech\DAO;
 
-use InfoTech\Model\Vendedor;
+use InfoTech\Model\Funcionario;
 
-class LoginDAO extends DAO
+class LoginDAO extends DAO 
 {
     public function __construct(){
+        
         parent::__construct();
     }
 
-    public function auth (Vendedor $model)
+    public function auth(Funcionario $model)
     {
-        $sql = "SELECT * FROM vendedor WHERE email = :email AND senha = :senha";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(':email', $model->email);
-        $stmt->bindValue(':senha', $model->senha);
+        $sql = "SELECT * FROM funcionario WHERE email=? AND senha=?";
+        $stmt = parent::$connection->prepare($sql);
+        $stmt->bindValue(1, $model->email);
+        $stmt->bindValue(2, $model->senha);
         $stmt->execute();
 
-        return $stmt->fetchObject(Vendedor::class);
+        // print_r($stmt->fetchObject(Funcionario::class));
+        // exit;
+        return $stmt->fetchObject(Funcionario::class);
     }
+
 }
+

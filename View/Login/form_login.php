@@ -8,6 +8,7 @@
 </div>
 
 <form method="POST" action="/infotech/login">
+ 
   <div class="mb-3">
     <label for="email" class="form-label">E-mail</label>
     <input type="email" class="form-control" id="email" name="email" value="<?= $model->email ?? '' ?>" >
@@ -15,10 +16,10 @@
 
   <div class="mb-3">
     <label for="senha" class="form-label">Senha</label>
-    <input type="password" class="form-control" id="senha" name="senha" value="<?= $model->senha ?? '' ?>" >
+    <input type="password" class="form-control" id="senha" name="senha" >
   </div>
 
-  <button type="submit" name="login" id="login" class="btn btn-primary">Entrar</button>
+  <button type="submit" name="login" id="login" class="btn btn-primary"> Logar </button>
 </form>
 
 <?php

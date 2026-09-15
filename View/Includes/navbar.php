@@ -10,7 +10,7 @@
             <a class="nav-link active" aria-current="page" href="#">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/infotech/produto/listar">Produtos</a>
+            <a class="nav-link" href="#">Produtos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Serviços</a>

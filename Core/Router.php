@@ -18,15 +18,14 @@ class Router
     public function dispatch()
     {
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        $uri = str_replace(BASE_DIR, '/', $uri);
+        $uri = str_replace( BASE_DIR, '/', $uri);
         $method = $_SERVER['REQUEST_METHOD'];
 
-        foreach ($this->routes as $route)
-        {
+        foreach ($this->routes as $route) {
             if ($route['method'] === $method && $route['uri'] === $uri) {
                 list($controllerName, $methodName) = explode('@', $route['controller']);
-                $controllerName = "InfoTech\\controller\\" . $controllerName;
-
+                $controllerName = "InfoTech\\Controller\\" . $controllerName;
+                
                 if (class_exists($controllerName)) {
                     $controller = new $controllerName();
                     if (method_exists($controller, $methodName)) {
@@ -37,7 +36,6 @@ class Router
             }
         }
 
-        // Nenhuma rota correspondeu
         http_response_code(404);
         echo "404 - Page Not Found";
     }

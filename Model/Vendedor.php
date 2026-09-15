@@ -1,20 +1,39 @@
 <?php
 
-namespace InfoTech\Model; // localizando onde está a classe ClienteModel
+namespace InfoTech\Model;
 
-use InfoTech\DAO\VendedorDAO; // vou chamar um método da class DAO, use ClienteDAO
+use InfoTech\DAO\VendedorDAO;
 
-final class Vendedor extends Model
+class Vendedor
 {
     public ?int $id_vendedor;
     public string $nome;
     public string $cpf;
-    public string $telefone;
     public string $email;
+    public string $senha;
 
-    public function logar()
+    function save()
     {
-        $objLogin = new LoginDAO();
-        return $objLogin->auth($this);
+
+    }
+
+    function getById()
+    {
+        
+    }
+
+    function getAllRows()
+    {
+        
+    }
+
+    function update()
+    {
+        
+    }
+
+    function delete()
+    {
+        
     }
 }
