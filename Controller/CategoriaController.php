@@ -1,7 +1,6 @@
 <?php
 
 namespace InfoTech\Controller;
-
 use InfoTech\Model\Categoria;
 
 class CategoriaController extends Controller
