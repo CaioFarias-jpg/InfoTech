@@ -11,7 +11,7 @@ formCliente.addEventListener('submit', async (event) => {
             method: 'POST',
             body: new FormData(formCliente) // já inclui o id_categoria do select
         });
-        const result = await response.json();
+        const result = await response.json();//att
 
         if (result.status === 200) {
             alert("Cadastrado com sucesso!!");
