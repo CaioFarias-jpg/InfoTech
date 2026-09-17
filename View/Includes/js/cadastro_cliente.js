@@ -11,7 +11,7 @@ formCliente.addEventListener('submit', async (event) => {
             method: 'POST',
             body: new FormData(formCliente) // já inclui o id_categoria do select
         });
-        const result = await response.json();//att
+        const result = await response.json();
 
         if (result.status === 200) {
             alert("Cadastrado com sucesso!!");
@@ -46,3 +46,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 // modalCliente.addEventListener('close', () => {
 //     window.location.href = '/infotech/cliente/listar';
 // });
+
+
+
+//GET = SOLICITA UMA REQUISIÇÃO AO SERVER EM UMA ROTA ESPECIFICA
+//POST = ENVIA DADOS AO SERVER
