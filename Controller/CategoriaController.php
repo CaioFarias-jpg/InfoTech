@@ -20,8 +20,9 @@ class CategoriaController extends Controller
                 'id_categoria' => $categoria->id_categoria,
                 'nome'         => $categoria->nome,
             ], $model->rows);
-
+            
             $result = ['status' => 200, 'categorias' => $categorias];
+
         } catch (\Throwable $e) {
             $result = ['status' => 500, 'mensagem' => 'Não foi possível carregar as categorias.'];
         }
