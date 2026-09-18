@@ -7,7 +7,7 @@ class VendedorController
     public string $nome;
     public string $cpf;
 
-    public static function hello()
+    public static function vendedor()
     {
         echo "Olá vindo da class Vendedor";
     }
