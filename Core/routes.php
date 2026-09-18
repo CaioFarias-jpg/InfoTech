@@ -14,3 +14,8 @@ $router->add('GET',  '/infotech/cliente/exclusao', 'ClienteController@exclusao')
 // Categoria (rotas usadas pelo JS via fetch, respondem JSON)
 $router->add('GET',  '/infotech/categoria/listar',   'CategoriaController@listar');
 $router->add('POST', '/infotech/categoria/cadastro', 'CategoriaController@cadastro');
+
+$router->add('GET',  '/infotech/produto/listar', 'ProdutoController@index');
+$router->add('GET',  '/infotech/produto/cadastro', 'ProdutoController@cadastro');
+$router->add('POST', '/infotech/produto/cadastro', 'ProdutoController@cadastro');
+$router->add('GET',  '/infotech/produto/exclusao', 'ProdutoController@exclusao');
