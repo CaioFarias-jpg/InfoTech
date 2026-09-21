@@ -7,8 +7,9 @@ use InfoTech\Model\Produto;
 class ProdutoController extends Controller
 {
 
-    public static function index() 
+    public static function index() //TODOS OS PRODUTOS
     {
+        parent::isLogged(); ##chama o método que valida se o usuário está logado
         $model = new Produto();
         $model->getAllRows(); //pega os dados da model
         parent::render('/Produto/listar_produto.php', $model);
@@ -16,6 +17,7 @@ class ProdutoController extends Controller
 
     public static function cadastro() //ENVIAR OS DADOS RECEBIDOS VIA POST
     {
+        parent::isLogged();
         $model = new Produto();
         if(parent::isPost())
         {
@@ -35,7 +37,7 @@ class ProdutoController extends Controller
         else{
             if(isset($_GET['id_produto'])){
 
-                 $id = $_GET['id_produto'];
+                 $id = $_GET['id_produto']; //captura o id que veio via GET
                  $model = Produto::getById($id); // solicita ao banco o produto com esse id
                 //  print_r($model);
                 //  exit;
@@ -48,6 +50,7 @@ class ProdutoController extends Controller
 
     public static function exclusao()
     {
+        parent::isLogged();
         if(isset($_GET['id_produto'])){
 
             $id = $_GET['id_produto']; //captura o id que veio via GET
@@ -55,6 +58,6 @@ class ProdutoController extends Controller
             $model->delete($id);
             parent::redirect('/infotech/produto/listar');
        }
-        
+        // echo "FUNCAO DE EXCLUIR PRODUTO";
     }
 }

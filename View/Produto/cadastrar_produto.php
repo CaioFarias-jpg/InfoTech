@@ -7,36 +7,43 @@
     <h1> Cadastrar Produtos </h1>
 </div>
 
-<form method="POST" action="/infotech/produto/cadastro">
+<form method="POST" action="/infotech/produto/cadastro" id="form_produto">
+  <input type="hidden" name="id_produto" id="id_produto" value="<?= $model->id_produto ?? '' ?>">
+
   <div class="mb-3">
-    <input type="hidden" name="id_produto" id="id_produto" value="<?= $model->id_produto ?? '' ?>" >
     <label for="nome" class="form-label">Nome</label>
-    <input type="text" class="form-control" id="nome" name="nome" value="<?= $model->nome ?? '' ?>" >
+    <input type="text" class="form-control" id="nome" name="nome" required
+           value="<?= htmlspecialchars($model->nome ?? '') ?>">
   </div>
+
   <div class="mb-3">
     <label for="descricao" class="form-label">Descrição</label>
-    <input type="text" class="form-control" id="descricao" name="descricao" value="<?= $model->descricao ?? '' ?>" >
+    <input type="text" class="form-control" id="descricao" name="descricao"
+           value="<?= htmlspecialchars($model->descricao ?? '') ?>">
   </div>
 
   <div class="mb-3">
     <label for="preco" class="form-label">Preço</label>
-    <input type="number" step="0.01" class="form-control" id="preco" name="preco" value="<?= $model->preco ?? '' ?>" >
+    <input type="number" step="0.01" min="0" class="form-control" id="preco" name="preco" required
+           value="<?= htmlspecialchars($model->preco ?? '') ?>">
   </div>
 
   <div class="mb-3">
     <label for="quantidade" class="form-label">Quantidade</label>
-    <input type="number" class="form-control" id="quantidade" name="quantidade" value="<?= $model->quantidade ?? '' ?>" >
+    <input type="number" min="0" class="form-control" id="quantidade" name="quantidade" required
+           value="<?= htmlspecialchars($model->quantidade ?? '') ?>">
   </div>
 
   <div class="mb-3">
-            <select class="form-select" name="status_produto" id="status_produto">
-                <option selected>Selecione o Status</option>
-                <option value="ATIVO"> Ativo </option>
-                <option value="INATIVO"> Inativo </option>
-            </select>
+    <label for="status_produto" class="form-label">Status</label>
+    <select class="form-select" name="status_produto" id="status_produto" required>
+      <option value="" disabled <?= empty($model->status_produto) ? 'selected' : '' ?>>Selecione o status</option>
+      <option value="ATIVO"   <?= ($model->status_produto ?? '') === 'ATIVO'   ? 'selected' : '' ?>>Ativo</option>
+      <option value="INATIVO" <?= ($model->status_produto ?? '') === 'INATIVO' ? 'selected' : '' ?>>Inativo</option>
+    </select>
   </div>
-  
-  <button type="submit" name="salvar" id="salvar" class="btn btn-primary">Salvar</button>
+
+  <button type="submit" name="salvar" id="salvar" class="btn btn-primary">Salvar produto</button>
 </form>
 
 <?php
