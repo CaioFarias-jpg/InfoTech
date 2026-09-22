@@ -7,7 +7,7 @@ formCliente.addEventListener('submit', async (event) => {
     event.preventDefault(); // impede o envio normal (que recarregaria a página)
 
     try {
-        const response = await fetch('/infotech/cliente/cadastro', {
+        const response = await fetch('/infotech/produto/cadastro', {
             method: 'POST',
             body: new FormData(formCliente) // já inclui o id_categoria do select
         });

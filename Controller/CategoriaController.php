@@ -5,6 +5,11 @@ use InfoTech\Model\Categoria;
 
 class CategoriaController extends Controller
 {
+    private static function tipoValido(string $tipo): bool
+    {
+        return in_array($tipo, ['CLIENTE', 'PRODUTO'], true);
+    }
+
     // GET /infotech/categoria/listar
     // Chamado pelo JS: devolve todas as categorias (getAllRows) em JSON
     public static function listar()
@@ -12,8 +17,13 @@ class CategoriaController extends Controller
         parent::isLoggedJson();
 
         try {
+            $tipo = strtoupper(trim($_GET['tipo'] ?? ''));
+            if (!self::tipoValido($tipo)) {
+                parent::jsonResponse(['status' => 400, 'mensagem' => 'Tipo de categoria invalido.']);
+            }
+
             $model = new Categoria();
-            $model->getAllRows();
+            $model->getAllRows($tipo);
 
             // monta só os campos que o select precisa
             $categorias = array_map(fn($categoria) => [
@@ -39,8 +49,9 @@ class CategoriaController extends Controller
         $model = new Categoria();
         $model->nome      = trim($_POST['nome'] ?? '');
         $model->descricao = trim($_POST['descricao'] ?? '') ?: null;
+        $model->tipo      = strtoupper(trim($_POST['tipo'] ?? ''));
 
-        if ($model->nome === '') {
+        if ($model->nome === '' || !self::tipoValido($model->tipo)) {
             parent::jsonResponse(['status' => 400, 'mensagem' => 'Informe o nome da categoria.']);
         }
 

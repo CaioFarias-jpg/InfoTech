@@ -17,12 +17,6 @@
   </div>
 
   <div class="mb-3">
-    <label for="descricao" class="form-label">Descrição</label>
-    <input type="text" class="form-control" id="descricao" name="descricao"
-           value="<?= htmlspecialchars($model->descricao ?? '') ?>">
-  </div>
-
-  <div class="mb-3">
     <label for="preco" class="form-label">Preço</label>
     <input type="number" step="0.01" min="0" class="form-control" id="preco" name="preco" required
            value="<?= htmlspecialchars($model->preco ?? '') ?>">
@@ -43,8 +37,27 @@
     </select>
   </div>
 
+  <div class="mb-3">
+    <label for="id_categoria" class="form-label">Categoria</label>
+    <div class="input-group">
+      <select class="form-select" name="id_categoria" id="id_categoria" required
+              data-selecionado="<?= $model->id_categoria ?? '' ?>">
+        <option value="" disabled selected>Carregando categorias...</option>
+      </select>
+      <button type="button" class="btn btn-outline-secondary" id="btn_nova_categoria">
+        <i class="bi bi-plus-lg"></i> Categoria
+      </button>
+    </div>
+  </div>
+
   <button type="submit" name="salvar" id="salvar" class="btn btn-primary">Salvar produto</button>
 </form>
+
+<?php
+   include VIEW . "/Includes/modais/modal_categoria_produto.php";
+?>
+
+<script src="<?= URL_BASE ?>/View/Includes/js/categoria_produto.js" defer></script>
 
 <?php
    include VIEW . "/Includes/footer.php";

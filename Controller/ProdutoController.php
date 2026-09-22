@@ -7,7 +7,7 @@ use InfoTech\Model\Produto;
 class ProdutoController extends Controller
 {
 
-    public static function index() //TODOS OS PRODUTOS
+    public static function index() 
     {
         parent::isLogged(); ##chama o método que valida se o usuário está logado
         $model = new Produto();
@@ -15,7 +15,7 @@ class ProdutoController extends Controller
         parent::render('/Produto/listar_produto.php', $model);
     }
 
-    public static function cadastro() //ENVIAR OS DADOS RECEBIDOS VIA POST
+    public static function cadastro()
     {
         parent::isLogged();
         $model = new Produto();
@@ -23,10 +23,11 @@ class ProdutoController extends Controller
         {
             $model->id_produto = !empty($_POST['id_produto']) ? $_POST['id_produto'] : null;
             $model->nome = $_POST['nome'];
-            $model->descricao = $_POST['descricao'];
+            $model->descricao = $_POST['descricao'] ?? '';
             $model->preco = $_POST['preco'];
             $model->quantidade = $_POST['quantidade'];
             $model->status_produto = $_POST['status_produto'];
+            $model->id_categoria = !empty($_POST['id_categoria']) ? (int) $_POST['id_categoria'] : null;
             // print_r($model);
             // exit;
             $model = $model->save();

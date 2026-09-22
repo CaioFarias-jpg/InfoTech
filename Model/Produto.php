@@ -12,6 +12,7 @@ final class Produto extends Model
     public float $preco;
     public int $quantidade;
     public string $status_produto;
+    public ?int $id_categoria = null;
 
     public function getAllRows()
     {   

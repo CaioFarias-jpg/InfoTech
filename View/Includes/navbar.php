@@ -9,9 +9,13 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Inicio</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../Produto/cadastrar_produto.php">Produtos</a>
-          </li>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Produtos
+            </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/infotech/produto/listar">Listar</a></li>
+              <li><a class="dropdown-item" href="/infotech/produto/cadastro">Cadastrar</a></li>
+            </ul>
           <li class="nav-item">
             <a class="nav-link" href="#">Serviços</a>
           </li>

@@ -55,11 +55,10 @@
 </form>
 
 <?php
-   include VIEW . "/Includes/modais/modal_categoria.php";
+   include VIEW . "/Includes/modais/modal_categoria_cliente.php";
 ?>
 
 <script src="<?= URL_BASE ?>/View/Includes/js/categoria.js" defer></script>
-<script src="<?= URL_BASE ?>/View/Includes/js/cadastro_cliente.js" defer></script>
 
 <?php
    include VIEW . "/Includes/footer.php";

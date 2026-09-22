@@ -9,11 +9,12 @@ final class Categoria extends Model
     public ?int $id_categoria = null;
     public string $nome;
     public ?string $descricao = null;
+    public string $tipo;
 
-    public function getAllRows()
+    public function getAllRows(string $tipo)
     {
         $objCat = new CategoriaDAO();
-        $this->rows = $objCat->select();
+        $this->rows = $objCat->select($tipo);
         return $this->rows;
     }
 

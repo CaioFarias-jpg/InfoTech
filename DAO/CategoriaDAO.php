@@ -16,10 +16,11 @@ class CategoriaDAO extends DAO
         return ($model->id_categoria === null) ? $this->insert($model) : $this->update($model);
     }
 
-    public function select()
+    public function select(string $tipo)
     {
-        $sql = "SELECT id_categoria, nome, descricao FROM categoria ORDER BY nome";
+        $sql = "SELECT id_categoria, nome, descricao, tipo FROM categoria WHERE tipo = ? ORDER BY nome";
         $stmt = parent::$connection->prepare($sql);
+        $stmt->bindValue(1, $tipo);
         $stmt->execute();
 
         return $stmt->fetchAll(DAO::FETCH_CLASS, Categoria::class);
@@ -27,10 +28,11 @@ class CategoriaDAO extends DAO
 
     public function insert(Categoria $model)
     {
-        $sql = "INSERT INTO categoria (nome, descricao) VALUES (?, ?)";
+        $sql = "INSERT INTO categoria (nome, descricao, tipo) VALUES (?, ?, ?)";
         $stmt = parent::$connection->prepare($sql);
         $stmt->bindValue(1, $model->nome);
         $stmt->bindValue(2, $model->descricao);
+        $stmt->bindValue(3, $model->tipo);
         $stmt->execute();
 
         $model->id_categoria = parent::$connection->lastInsertId();
@@ -39,11 +41,12 @@ class CategoriaDAO extends DAO
 
     public function update(Categoria $model)
     {
-        $sql = "UPDATE categoria SET nome = ?, descricao = ? WHERE id_categoria = ?";
+        $sql = "UPDATE categoria SET nome = ?, descricao = ?, tipo = ? WHERE id_categoria = ?";
         $stmt = parent::$connection->prepare($sql);
         $stmt->bindValue(1, $model->nome);
         $stmt->bindValue(2, $model->descricao);
-        $stmt->bindValue(3, $model->id_categoria);
+        $stmt->bindValue(3, $model->tipo);
+        $stmt->bindValue(4, $model->id_categoria);
 
         return $stmt->execute();
     }

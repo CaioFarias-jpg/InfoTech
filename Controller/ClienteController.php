@@ -1,12 +1,12 @@
 <?php
 
-namespace InfoTech\Controller; //local onde se encontra a classe ClienteController
-use InfoTech\Model\Cliente; // irei utilizar a model de cliente
+namespace InfoTech\Controller;
+use InfoTech\Model\Cliente; 
 
 class ClienteController extends Controller
 {
 
-    public static function index() //TODOS OS CLIENTES
+    public static function index()
     {
         parent::isLogged(); ##chama o método que valida se o usuário está logado
         $model = new Cliente();
@@ -25,6 +25,7 @@ class ClienteController extends Controller
             $model->status_cliente = $_POST['status_cliente'];
             $model->telefone = $_POST['telefone'];
             $model->email = $_POST['email'];
+            $model->id_categoria = !empty($_POST['id_categoria']) ? (int) $_POST['id_categoria'] : null;
             // print_r($model);
             // exit;
             $model = $model->save();

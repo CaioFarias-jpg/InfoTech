@@ -37,12 +37,13 @@ class ClienteDAO extends DAO
 
     public function insert(Cliente $model)
     {
-        $sql = "INSERT INTO cliente (nome,status_cliente,telefone,email) VALUES (?,?,?,?)";
+        $sql = "INSERT INTO cliente (nome,status_cliente,telefone,email,id_categoria) VALUES (?,?,?,?,?)";
         $stmt = parent::$connection->prepare($sql);
         $stmt->bindValue(1, $model->nome);
         $stmt->bindValue(2, $model->status_cliente);
         $stmt->bindValue(3, $model->telefone);
         $stmt->bindValue(4, $model->email);
+        $stmt->bindValue(5, $model->id_categoria);
         $stmt->execute();
 
         $model->id_cliente = parent::$connection->lastInsertId();
@@ -51,14 +52,15 @@ class ClienteDAO extends DAO
 
     public function update(Cliente $model)
     {
-        $sql = "UPDATE cliente SET nome=?, status_cliente=?, telefone=?, email=? 
+        $sql = "UPDATE cliente SET nome=?, status_cliente=?, telefone=?, email=?, id_categoria=? 
                 WHERE id_cliente =?";
         $stmt = parent::$connection->prepare($sql);
         $stmt->bindValue(1, $model->nome);
         $stmt->bindValue(2, $model->status_cliente);
         $stmt->bindValue(3, $model->telefone);
         $stmt->bindValue(4, $model->email);
-        $stmt->bindValue(5, $model->id_cliente);
+        $stmt->bindValue(5, $model->id_categoria);
+        $stmt->bindValue(6, $model->id_cliente);
         
         return $stmt->execute();
     }
@@ -75,4 +77,3 @@ class ClienteDAO extends DAO
 
 
 }
-
