@@ -3,10 +3,14 @@
     include VIEW . "/Includes/navbar.php";
 ?>
 
-<div class="p-5 center">
-    <h1> Cadastrar Produtos </h1>
-</div>
+<main class="container page-content py-5">
+  <div class="mb-4">
+    <h1 class="page-title h2">Cadastrar produto</h1>
+    <p class="text-muted mb-0">Preencha os dados abaixo para salvar o produto.</p>
+  </div>
 
+<div class="card form-card shadow-sm">
+<div class="card-body">
 <form method="POST" action="/infotech/produto/cadastro" id="form_produto">
   <input type="hidden" name="id_produto" id="id_produto" value="<?= $model->id_produto ?? '' ?>">
 
@@ -50,8 +54,16 @@
     </div>
   </div>
 
-  <button type="submit" name="salvar" id="salvar" class="btn btn-primary">Salvar produto</button>
+  <div class="d-flex justify-content-end gap-2">
+    <a href="/infotech/produto/listar" class="btn btn-outline-secondary">Cancelar</a>
+    <button type="submit" name="salvar" id="salvar" class="btn btn-primary">
+      <i class="bi bi-check-lg"></i> Salvar produto
+    </button>
+  </div>
 </form>
+</div>
+</div>
+</main>
 
 <?php
    include VIEW . "/Includes/modais/modal_categoria_produto.php";

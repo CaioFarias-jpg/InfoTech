@@ -13,3 +13,47 @@
     visibility: visible;
     background-color: red;
   }
+
+body {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+.page-content {
+  min-height: calc(100vh - 260px);
+}
+
+.page-title {
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.form-card,
+.list-card {
+  border: 0;
+  border-radius: .75rem;
+}
+
+.form-card .card-body,
+.list-card .card-body {
+  padding: 1.5rem;
+}
+
+.modal-app {
+  width: min(100% - 2rem, 500px);
+  border: 0;
+  border-radius: .75rem;
+  padding: 1.5rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .2);
+}
+
+.modal-app::backdrop {
+  background-color: rgba(0, 0, 0, .45);
+}
+
+@media (max-width: 576px) {
+  .form-card .card-body,
+  .list-card .card-body {
+    padding: 1rem;
+  }
+}

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
+    <div class="container">
       <a class="navbar-brand" href="/infotech/">InfoTech</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -7,23 +7,25 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            <a class="nav-link" href="/infotech/">Início</a>
           </li>
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProdutos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Produtos
             </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownProdutos">
               <li><a class="dropdown-item" href="/infotech/produto/listar">Listar</a></li>
               <li><a class="dropdown-item" href="/infotech/produto/cadastro">Cadastrar</a></li>
             </ul>
+          </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Serviços</a>
+            <a class="nav-link" href="/infotech/#servicos">Serviços</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Usuarios
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownClientes" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Clientes
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownClientes">
               <li><a class="dropdown-item" href="/infotech/cliente/listar">Listar</a></li>
               <li><a class="dropdown-item" href="/infotech/cliente/cadastro">Cadastrar</a></li>
             </ul>
@@ -34,5 +36,3 @@
       </div>
     </div>
   </nav>
-
- <div class="container">
